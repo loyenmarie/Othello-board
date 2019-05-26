@@ -1,14 +1,14 @@
 from distutils.core import setup
 import py2exe, glob, os
 
-origIsSystemDLL = py2exe.build_exe.isSystemDLL # save the orginal before we edit it
+origIsSystemDLL = py2exe.build_exe.isSystemDLL 
 def isSystemDLL(pathname):
-    # checks if the freetype and ogg dll files are being included
+   
     if os.path.basename(pathname).lower() in ("libfreetype-6.dll", "libogg-0.dll", "sdl_ttf.dll"):
             return 0
-    return origIsSystemDLL(pathname) # return the orginal function
+    return origIsSystemDLL(pathname) 
 
-py2exe.build_exe.isSystemDLL = isSystemDLL # override the default function with this one
+py2exe.build_exe.isSystemDLL = isSystemDLL 
 opts = {
     "py2exe": {
         'includes':['board',
