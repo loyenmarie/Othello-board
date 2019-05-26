@@ -24,6 +24,6 @@ setup (
     windows=['othello.pyw'],
     options=opts,
     data_files = [
-        ("res", glob.glob("res\\*.bmp"))
+        ("imgs", glob.glob("imgs\\*.bmp"))
     ],
 )
